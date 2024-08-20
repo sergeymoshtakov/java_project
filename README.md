@@ -3,7 +3,7 @@
 ## Установленная программа
 ![result](images/ide.png)
 
-## Первое дз
+## Второе дз
 ![result](images/dz1/result-1.png)
 ![result](images/dz1/result-2.png)
 ![result](images/dz1/result-3.png)
@@ -17,9 +17,9 @@
 ![result](images/dz1/result-11.png)
 ![result](images/dz1/result-12.png)
 
-## Второе дз
+## Третье дз
 ![result](images/dz2/task-1.png)
 ![result](images/dz2/task-2.png)
 
-## Первое дз
+## Четвертое дз
 ![result](images/dz4/result.png)

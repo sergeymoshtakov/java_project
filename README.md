@@ -17,7 +17,7 @@
 ![result](images/dz1/result-11.png)
 ![result](images/dz1/result-12.png)
 
-## Первое дз
+## Второе дз
 ![result](images/dz2/task-1.png)
 ![result](images/dz2/task-2.png)
 

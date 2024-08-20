@@ -20,3 +20,6 @@
 ## Первое дз
 ![result](images/dz2/task-1.png)
 ![result](images/dz2/task-2.png)
+
+## Первое дз
+![result](images/dz4/result.png)

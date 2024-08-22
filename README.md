@@ -23,3 +23,7 @@
 
 ## Четвертое дз
 ![result](images/dz4/result.png)
+
+## Пятое дз
+![result](images/dz5/result-1.png)
+![result](images/dz5/result-2.png)

@@ -16,11 +16,11 @@ public class Main {
         country1.printCountry(true);
         Fraction fraction1 = FractionFactory.getRandomFraction();
         fraction1.printFraction();
-        System.out.print(" + ");
-        int fraction2 = 1;
+        System.out.print(" / ");
+        int fraction2 = 0;
         System.out.print(fraction2);
         System.out.print(" = ");
-        Fraction fraction3 = fraction1.add(fraction2);
+        Fraction fraction3 = fraction1.divide(fraction2);
         fraction3.printFraction();
         System.out.println();
         Book book = new Book();

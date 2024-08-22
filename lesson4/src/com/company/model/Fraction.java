@@ -100,20 +100,28 @@ public class Fraction {
 
     public Fraction divide(Fraction fraction) {
         Fraction result = new Fraction();
-        int numerator = this.numerator * fraction.getDenominator();
-        int denominator = this.denominator * fraction.getNumerator();
-        result.setNumerator(numerator);
-        result.setDenominator(denominator);
+        if(fraction.getNumerator() == 0){
+            System.out.println("Cannot divide by zero");
+        } else {
+            int numerator = this.numerator * fraction.getDenominator();
+            int denominator = this.denominator * fraction.getNumerator();
+            result.setNumerator(numerator);
+            result.setDenominator(denominator);
+        }
         return result;
     }
 
     public Fraction divide(int number) {
         Fraction result = new Fraction();
-        Fraction fraction = new Fraction(number);
-        int numerator = this.numerator * fraction.getDenominator();
-        int denominator = this.denominator * fraction.getNumerator();
-        result.setNumerator(numerator);
-        result.setDenominator(denominator);
+        if(number == 0){
+            System.out.println("Cannot divide by zero");
+        } else {
+            Fraction fraction = new Fraction(number);
+            int numerator = this.numerator * fraction.getDenominator();
+            int denominator = this.denominator * fraction.getNumerator();
+            result.setNumerator(numerator);
+            result.setDenominator(denominator);
+        }
         return result;
     }
 

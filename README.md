@@ -27,3 +27,8 @@
 ## Пятое дз
 ![result](images/dz5/result-1.png)
 ![result](images/dz5/result-2.png)
+
+
+## Шестое дз
+![result](images/dz6/result-1.png)
+![result](images/dz6/result-2.png)

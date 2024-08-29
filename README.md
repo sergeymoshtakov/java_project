@@ -36,3 +36,7 @@
 ## Седьмое дз
 ![result](images/dz7/result-1.png)
 ![result](images/dz7/result-2.png)
+
+## Восьмое дз
+![result](images/dz8/result-1.png)
+![result](images/dz8/result-2.png)

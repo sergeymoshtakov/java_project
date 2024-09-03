@@ -46,3 +46,6 @@
 ![result](images/dz9/result-1.png)
 ![result](images/dz9/result-2.png)
 ![result](images/dz9/result-3.png)
+
+## Девятое дз
+![result](images/dz10/result-1.png)

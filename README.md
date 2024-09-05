@@ -47,5 +47,15 @@
 ![result](images/dz9/result-2.png)
 ![result](images/dz9/result-3.png)
 
-## Девятое дз
+## Десятое дз
 ![result](images/dz10/result-1.png)
+
+## Одиннадцатое дз
+![result](images/dz11/result-1.png)
+![result](images/dz11/result-2.png)
+![result](images/dz11/result-3.png)
+![result](images/dz11/result-4.png)
+![result](images/dz11/result-5.png)
+![result](images/dz11/result-6.png)
+![result](images/dz11/result-7.png)
+![result](images/dz11/result-8.png)

@@ -1,0 +1,5 @@
+Hello, world!
+This is a test file.
+Java programming is awesome.
+Have a nice day!
+See you soon!

@@ -68,3 +68,8 @@
 ![result](images/dz12/result-5.png)
 ![result](images/dz12/result-6.png)
 ![result](images/dz12/result-7.png)
+
+## Двенадцатое дз
+![result](images/dz13/result-1.png)
+![result](images/dz13/result-2.png)
+![result](images/dz13/result-3.png)

@@ -3,7 +3,7 @@
 ## Установленная программа
 ![result](images/ide.png)
 
-## Второе дз
+## Типы данных
 ![result](images/dz1/result-1.png)
 ![result](images/dz1/result-2.png)
 ![result](images/dz1/result-3.png)
@@ -17,40 +17,40 @@
 ![result](images/dz1/result-11.png)
 ![result](images/dz1/result-12.png)
 
-## Третье дз
+## Принципы ООП
 ![result](images/dz2/task-1.png)
 ![result](images/dz2/task-2.png)
 
-## Четвертое дз
+## Синтаксис работы с классами
 ![result](images/dz4/result.png)
 
-## Пятое дз
+## Абстрактные классы и интерфейсы
 ![result](images/dz5/result-1.png)
 ![result](images/dz5/result-2.png)
 
 
-## Шестое дз
+## Классы обертки
 ![result](images/dz6/result-1.png)
 ![result](images/dz6/result-2.png)
 
-## Седьмое дз
+## Обработка исключений
 ![result](images/dz7/result-1.png)
 ![result](images/dz7/result-2.png)
 
-## Восьмое дз
+## Дженерики
 ![result](images/dz8/result-1.png)
 ![result](images/dz8/result-2.png)
 
-## Девятое дз
+## Наследование
 ![result](images/dz9/diagram.png)
 ![result](images/dz9/result-1.png)
 ![result](images/dz9/result-2.png)
 ![result](images/dz9/result-3.png)
 
-## Десятое дз
+## Аннотации
 ![result](images/dz10/result-1.png)
 
-## Одиннадцатое дз
+## Стримы
 ![result](images/dz11/result-1.png)
 ![result](images/dz11/result-2.png)
 ![result](images/dz11/result-3.png)
@@ -60,7 +60,7 @@
 ![result](images/dz11/result-7.png)
 ![result](images/dz11/result-8.png)
 
-## Двенадцатое дз
+## Потоки ввода-вывода
 ![result](images/dz12/result-1.png)
 ![result](images/dz12/result-2.png)
 ![result](images/dz12/result-3.png)
@@ -69,7 +69,13 @@
 ![result](images/dz12/result-6.png)
 ![result](images/dz12/result-7.png)
 
-## Двенадцатое дз
+## Многопоточность
 ![result](images/dz13/result-1.png)
 ![result](images/dz13/result-2.png)
 ![result](images/dz13/result-3.png)
+
+## Maven
+![result](images/dz14/result-1.png)
+![result](images/dz14/result-2.png)
+![result](images/dz14/result-3.png)
+![result](images/dz14/result-4.png)

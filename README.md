@@ -97,3 +97,7 @@
 ![result](images/dz15/result-12.png)
 ![result](images/dz15/result-13.png)
 
+## Начало работы с базами данных в джаве.
+![result](images/dz16/result-1.png)
+![result](images/dz16/result-2.png)
+![result](images/dz16/result-3.png)

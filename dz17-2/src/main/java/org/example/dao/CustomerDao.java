@@ -12,6 +12,7 @@ public class CustomerDao {
     private static final String UPDATE_CUSTOMER_DISCOUNT_SQL = "UPDATE customers SET discount = ? WHERE last_name = ?";
     private static final String DELETE_CUSTOMER_SQL = "DELETE FROM customers WHERE first_name = ? AND last_name = ?";
     private static final String GET_ALL_CUSTOMERS_SQL = "SELECT * FROM customers";
+    private static final String GET_CUSTOMER_BY_LAST_NAME_SQL = "SELECT * FROM customers WHERE last_name = ?";
 
     public static void addNewCustomer(Customer customer) {
         try (Connection conn = DatabaseConnection.getConnection();
@@ -78,5 +79,28 @@ public class CustomerDao {
             System.out.println(e.getMessage());
         }
         return customers;
+    }
+
+    public static Customer getCustomerByLastName(String lastName) {
+        Customer customer = null;
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(GET_CUSTOMER_BY_LAST_NAME_SQL)) {
+            preparedStatement.setString(1, lastName);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                customer = new Customer();
+                customer.setId(resultSet.getInt("id"));
+                customer.setFirstName(resultSet.getString("first_name"));
+                customer.setLastName(resultSet.getString("last_name"));
+                customer.setBirthDate(resultSet.getDate("birth_date"));
+                customer.setPhoneNumber(resultSet.getString("phone_number"));
+                customer.setEmail(resultSet.getString("email"));
+                customer.setDiscount(resultSet.getDouble("discount"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return customer;
     }
 }

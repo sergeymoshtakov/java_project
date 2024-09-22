@@ -14,6 +14,8 @@ public class ItemTypeDao {
     private static final String ADD_ITEM_TYPE_SQL = "INSERT INTO item_types (name) VALUES (?)";
     private static final String DELETE_ITEM_TYPE_SQL = "DELETE FROM item_types WHERE name = ?";
     private static final String GET_ALL_ITEM_TYPES_SQL = "SELECT * FROM item_types";
+    private static final String GET_ITEM_TYPE_BY_ID_SQL = "SELECT * FROM item_types WHERE id = ?"; // Новый SQL-запрос
+
 
     public static void addNewItemType(ItemType itemType) {
         try (Connection conn = DatabaseConnection.getConnection();
@@ -57,5 +59,22 @@ public class ItemTypeDao {
             System.out.println(e.getMessage());
         }
         return itemTypes;
+    }
+
+    public static ItemType getItemTypeById(int id) {
+        ItemType itemType = null;
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(GET_ITEM_TYPE_BY_ID_SQL)) {
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                itemType = new ItemType();
+                itemType.setId(resultSet.getInt("id"));
+                itemType.setName(resultSet.getString("name"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error fetching item type by ID: " + e.getMessage());
+        }
+        return itemType;
     }
 }

@@ -107,3 +107,9 @@
 ![result](images/dz17-2/result-2.png)
 ![result](images/dz17-2/result-3.png)
 ![result](images/dz17-2/result-4.png)
+
+## Работа с базой данных через JDBC. Юнит тестирование. Практика. Часть 2.
+![result](images/dz18/result-1.png)
+![result](images/dz18/result-2.png)
+![result](images/dz18/result-3.png)
+![result](images/dz18/result-4.png)

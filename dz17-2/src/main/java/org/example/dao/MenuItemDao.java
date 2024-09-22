@@ -12,10 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MenuItemDao {
-    private static final String ADD_MENU_ITEM_SQL = "INSERT INTO menu_items (name_en, name_de, price, item_type_id) VALUES (?, ?, ?, ?)";
-    private static final String UPDATE_MENU_ITEM_PRICE_SQL = "UPDATE menu_items SET price = ? WHERE name_en = ?";
-    private static final String DELETE_MENU_ITEM_SQL = "DELETE FROM menu_items WHERE name_en = ?";
-    private static final String GET_ALL_MENU_ITEMS_SQL = "SELECT mi.*, it.name AS item_type_name FROM menu_items mi JOIN item_types it ON mi.item_type_id = it.id";
+    public static final String ADD_MENU_ITEM_SQL = "INSERT INTO menu_items (name_en, name_de, price, item_type_id) VALUES (?, ?, ?, ?)";
+    public static final String UPDATE_MENU_ITEM_PRICE_SQL = "UPDATE menu_items SET price = ? WHERE name_en = ?";
+    public static final String DELETE_MENU_ITEM_SQL = "DELETE FROM menu_items WHERE name_en = ?";
+    public static final String GET_ALL_MENU_ITEMS_SQL = "SELECT mi.*, it.name AS item_type_name FROM menu_items mi JOIN item_types it ON mi.item_type_id = it.id";
+    private static final String GET_MENU_ITEM_BY_ID_SQL = "SELECT * FROM menu_items WHERE id = ?";
 
     public static void addNewMenuItem(MenuItem menuItem) {
         int itemTypeId = getItemTypeIdByName(menuItem.getItemType().getName());
@@ -102,5 +103,25 @@ public class MenuItemDao {
             System.out.println(e.getMessage());
         }
         return -1;
+    }
+
+    public static MenuItem getMenuItemById(int id) {
+        MenuItem menuItem = null;
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(GET_MENU_ITEM_BY_ID_SQL)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                menuItem = new MenuItem();
+                menuItem.setId(rs.getInt("id"));
+                menuItem.setNameEn(rs.getString("name_en"));
+                menuItem.setNameDe(rs.getString("name_de"));
+                menuItem.setPrice(rs.getDouble("price"));
+                menuItem.setItemType(ItemTypeDao.getItemTypeById(rs.getInt("item_type_id")));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error fetching menu item by ID: " + e.getMessage());
+        }
+        return menuItem;
     }
 }

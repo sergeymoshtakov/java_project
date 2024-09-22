@@ -23,7 +23,7 @@ public class DatabaseConnection {
 
     private static void createDatabaseIfNotExists() {
         String dbName = "coffee_shop";
-        String dbUrlWithoutDB = configLoader.getDbUrl().replace("/" + dbName, "/postgres"); // Подключаемся к системной базе данных postgres
+        String dbUrlWithoutDB = configLoader.getDbUrl().replace("/" + dbName, "/postgres");
 
         try (Connection conn = DriverManager.getConnection(
                 dbUrlWithoutDB,

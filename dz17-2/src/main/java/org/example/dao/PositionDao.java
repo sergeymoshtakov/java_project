@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PositionDao {
-    private static final String ADD_POSITION_SQL = "INSERT INTO positions (name) VALUES (?)";
-    private static final String DELETE_POSITION_SQL = "DELETE FROM positions WHERE name = ?";
-    private static final String GET_ALL_POSITIONS_SQL = "SELECT * FROM positions";
+    public static final String ADD_POSITION_SQL = "INSERT INTO positions (name) VALUES (?)";
+    public static final String DELETE_POSITION_SQL = "DELETE FROM positions WHERE name = ?";
+    public static final String GET_ALL_POSITIONS_SQL = "SELECT * FROM positions";
 
     public static void addNewPosition(Position position) {
         try (Connection conn = DatabaseConnection.getConnection();

@@ -11,11 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemTypeDao {
-    private static final String ADD_ITEM_TYPE_SQL = "INSERT INTO item_types (name) VALUES (?)";
-    private static final String DELETE_ITEM_TYPE_SQL = "DELETE FROM item_types WHERE name = ?";
-    private static final String GET_ALL_ITEM_TYPES_SQL = "SELECT * FROM item_types";
-    private static final String GET_ITEM_TYPE_BY_ID_SQL = "SELECT * FROM item_types WHERE id = ?"; // Новый SQL-запрос
-
+    public static final String ADD_ITEM_TYPE_SQL = "INSERT INTO item_types (name) VALUES (?)";
+    public static final String DELETE_ITEM_TYPE_SQL = "DELETE FROM item_types WHERE name = ?";
+    public static final String GET_ALL_ITEM_TYPES_SQL = "SELECT * FROM item_types";
+    public static final String GET_ITEM_TYPE_BY_ID_SQL = "SELECT * FROM item_types WHERE id = ?"; // Новый SQL-запрос
 
     public static void addNewItemType(ItemType itemType) {
         try (Connection conn = DatabaseConnection.getConnection();

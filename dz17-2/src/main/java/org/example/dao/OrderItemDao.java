@@ -80,7 +80,7 @@ public class OrderItemDao {
         return orderItems;
     }
 
-    private static int getMenuItemIdByName(String menuItemName) {
+    public static int getMenuItemIdByName(String menuItemName) {
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(GET_MENU_ITEM_ID_SQL)) {
             ps.setString(1, menuItemName);
@@ -94,7 +94,7 @@ public class OrderItemDao {
         return -1;
     }
 
-    private static MenuItem getMenuItemById(int id) {
+    public static MenuItem getMenuItemById(int id) {
         MenuItem menuItem = null;
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(GET_MENU_ITEM_BY_ID_SQL)) {

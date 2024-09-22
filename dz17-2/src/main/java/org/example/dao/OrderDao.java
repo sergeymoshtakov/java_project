@@ -8,14 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderDao {
-    private static final String ADD_ORDER_SQL = "INSERT INTO orders (customer_first_name, customer_last_name, order_date, total_amount) VALUES (?, ?, ?, ?)";
-    private static final String DELETE_ORDER_SQL = "DELETE FROM orders WHERE id = ?";
-    private static final String GET_ALL_ORDERS_SQL = "SELECT * FROM orders";
-    private static final String GET_ORDER_BY_ID_SQL = "SELECT * FROM orders WHERE id = ?";
-    private static final String GET_ORDERS_BY_DATE_SQL = "SELECT * FROM orders WHERE DATE(order_date) = ?";
-    private static final String GET_ORDERS_BY_DATE_RANGE_SQL = "SELECT * FROM orders WHERE DATE(order_date) BETWEEN ? AND ?";
-    private static final String COUNT_DESSERT_ORDERS_SQL = "SELECT COUNT(*) FROM orders o JOIN order_items oi ON o.id = oi.order_id JOIN menu_items mi ON oi.menu_item_id = mi.id WHERE DATE(o.order_date) = ? AND mi.item_type = 'Dessert'";
-    private static final String COUNT_DRINK_ORDERS_SQL = "SELECT COUNT(*) FROM orders o JOIN order_items oi ON o.id = oi.order_id JOIN menu_items mi ON oi.menu_item_id = mi.id WHERE DATE(o.order_date) = ? AND mi.item_type = 'Drink'";
+    public static final String ADD_ORDER_SQL = "INSERT INTO orders (customer_first_name, customer_last_name, order_date, total_amount) VALUES (?, ?, ?, ?)";
+    public static final String DELETE_ORDER_SQL = "DELETE FROM orders WHERE id = ?";
+    public static final String GET_ALL_ORDERS_SQL = "SELECT * FROM orders";
+    public static final String GET_ORDER_BY_ID_SQL = "SELECT * FROM orders WHERE id = ?";
+    public static final String GET_ORDERS_BY_DATE_SQL = "SELECT * FROM orders WHERE DATE(order_date) = ?";
+    public static final String GET_ORDERS_BY_DATE_RANGE_SQL = "SELECT * FROM orders WHERE DATE(order_date) BETWEEN ? AND ?";
+    public static final String COUNT_DESSERT_ORDERS_SQL = "SELECT COUNT(*) FROM orders o JOIN order_items oi ON o.id = oi.order_id JOIN menu_items mi ON oi.menu_item_id = mi.id WHERE DATE(o.order_date) = ? AND mi.item_type = 'Dessert'";
+    public static final String COUNT_DRINK_ORDERS_SQL = "SELECT COUNT(*) FROM orders o JOIN order_items oi ON o.id = oi.order_id JOIN menu_items mi ON oi.menu_item_id = mi.id WHERE DATE(o.order_date) = ? AND mi.item_type = 'Drink'";
 
     public static void addNewOrder(Order order) {
         try (Connection conn = DatabaseConnection.getConnection();

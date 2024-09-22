@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StaffDao {
-    private static final String ADD_STAFF_SQL = "INSERT INTO staff (first_name, last_name, phone_number, email, position_id) VALUES (?, ?, ?, ?, ?)";
+    public static final String ADD_STAFF_SQL = "INSERT INTO staff (first_name, last_name, phone_number, email, position_id) VALUES (?, ?, ?, ?, ?)";
     public static String UPDATE_CONFECTIONER_ADDRESS = "UPDATE staff SET email = ? WHERE position_id = (SELECT id FROM positions WHERE name = 'Confectioner') AND last_name = ?";
-    private static final String UPDATE_BARISTA_PHONE_SQL = "UPDATE staff SET phone_number = ? WHERE position_id = (SELECT id FROM positions WHERE name = 'Barista') AND last_name = ?";
-    private static final String DELETE_STAFF_SQL = "DELETE FROM staff WHERE first_name = ? AND last_name = ?";
-    private static final String GET_ALL_STAFF_SQL = "SELECT s.*, p.name AS position_name FROM staff s JOIN positions p ON s.position_id = p.id";
+    public static final String UPDATE_BARISTA_PHONE_SQL = "UPDATE staff SET phone_number = ? WHERE position_id = (SELECT id FROM positions WHERE name = 'Barista') AND last_name = ?";
+    public static final String DELETE_STAFF_SQL = "DELETE FROM staff WHERE first_name = ? AND last_name = ?";
+    public static final String GET_ALL_STAFF_SQL = "SELECT s.*, p.name AS position_name FROM staff s JOIN positions p ON s.position_id = p.id";
 
     public static void addNewStaff(Staff staff) {
         int positionId = getPositionIdByName(staff.getPosition().getName());

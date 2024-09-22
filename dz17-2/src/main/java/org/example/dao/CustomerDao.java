@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerDao {
-    private static final String ADD_CUSTOMER_SQL = "INSERT INTO customers (first_name, last_name, birth_date, phone_number, email, discount) VALUES (?, ?, ?, ?, ?, ?)";
-    private static final String UPDATE_CUSTOMER_DISCOUNT_SQL = "UPDATE customers SET discount = ? WHERE last_name = ?";
-    private static final String DELETE_CUSTOMER_SQL = "DELETE FROM customers WHERE first_name = ? AND last_name = ?";
-    private static final String GET_ALL_CUSTOMERS_SQL = "SELECT * FROM customers";
-    private static final String GET_CUSTOMER_BY_LAST_NAME_SQL = "SELECT * FROM customers WHERE last_name = ?";
+    public static final String ADD_CUSTOMER_SQL = "INSERT INTO customers (first_name, last_name, birth_date, phone_number, email, discount) VALUES (?, ?, ?, ?, ?, ?)";
+    public static final String UPDATE_CUSTOMER_DISCOUNT_SQL = "UPDATE customers SET discount = ? WHERE last_name = ?";
+    public static final String DELETE_CUSTOMER_SQL = "DELETE FROM customers WHERE first_name = ? AND last_name = ?";
+    public static final String GET_ALL_CUSTOMERS_SQL = "SELECT * FROM customers";
+    public static final String GET_CUSTOMER_BY_LAST_NAME_SQL = "SELECT * FROM customers WHERE last_name = ?";
 
     public static void addNewCustomer(Customer customer) {
         try (Connection conn = DatabaseConnection.getConnection();

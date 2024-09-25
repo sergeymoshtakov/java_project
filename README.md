@@ -123,5 +123,5 @@
 ![result](images/dz18/result-12.png)
 
 ## Введение в Spring
-![result](images/dz19/result-1.png)
+![result](images/dz19/result-1.jpg)
 - database: [ссылка](dz19/src/main/resources/createTables.sql)

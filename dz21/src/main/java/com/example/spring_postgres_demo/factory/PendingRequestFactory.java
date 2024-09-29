@@ -1,0 +1,47 @@
+package com.example.spring_postgres_demo.factory;
+
+import com.example.spring_postgres_demo.model.CargoType;
+import com.example.spring_postgres_demo.model.Destination;
+import com.example.spring_postgres_demo.model.PendingRequest;
+import com.example.spring_postgres_demo.model.Status;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.sql.Timestamp;
+import java.time.Instant;
+import java.util.Random;
+
+@Service
+public class PendingRequestFactory implements IFactory {
+
+    @Autowired
+    private DestinationFactory destinationFactory;
+
+    @Autowired
+    private CargoTypeFactory cargoTypeFactory;
+
+    @Autowired
+    private StatusFactory statusFactory;
+
+    @Override
+    public PendingRequest getRandomElement() {
+        Random random = new Random();
+
+        Destination randomDestination = destinationFactory.getRandomElement();
+        CargoType randomCargoType = cargoTypeFactory.getRandomElement();
+        Status randomStatus = statusFactory.getRandomElement();
+
+        double randomCargoWeight = 1000.0 + (5000.0 - 1000.0) * random.nextDouble();
+
+        Timestamp creationTime = Timestamp.from(Instant.now());
+
+        PendingRequest pendingRequest = new PendingRequest();
+        pendingRequest.setDestination(randomDestination);
+        pendingRequest.setCargoType(randomCargoType);
+        pendingRequest.setCargoWeight(randomCargoWeight);
+        pendingRequest.setStatus(randomStatus);
+        pendingRequest.setCreationTime(creationTime);
+
+        return pendingRequest;
+    }
+}

@@ -127,13 +127,13 @@
 - database: [ссылка](dz19/src/main/resources/createTables.sql)
 
 ## Spring Boot
-![result](images/dz20/result-1.jpg)
-![result](images/dz20/result-2.jpg)
-![result](images/dz20/result-3.jpg)
-![result](images/dz20/result-4.jpg)
-![result](images/dz20/result-5.jpg)
+![result](images/dz20/result-1.png)
+![result](images/dz20/result-2.png)
+![result](images/dz20/result-3.png)
+![result](images/dz20/result-4.png)
+![result](images/dz20/result-5.png)
 
 Spring Data
-![result](images/dz21/result-1.jpg)
-![result](images/dz21/result-2.jpg)
-![result](images/dz21/result-3.jpg)
+![result](images/dz21/result-1.png)
+![result](images/dz21/result-2.png)
+![result](images/dz21/result-3.png)

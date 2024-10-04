@@ -133,11 +133,14 @@
 ![result](images/dz20/result-4.png)
 ![result](images/dz20/result-5.png)
 
-Spring Data
+## Spring Data
 ![result](images/dz21/result-1.png)
 ![result](images/dz21/result-2.png)
 ![result](images/dz21/result-3.png)
 
-Spring Data. Часть 2.
+## Spring Data. Часть 2.
 ![result](images/dz22/result-1.png)
 ![result](images/dz22/result-2.png)
+
+## Введение в Web
+![result](images/dz23/result-1.png)

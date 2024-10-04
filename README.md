@@ -137,3 +137,7 @@ Spring Data
 ![result](images/dz21/result-1.png)
 ![result](images/dz21/result-2.png)
 ![result](images/dz21/result-3.png)
+
+Spring Data. Часть 2.
+![result](images/dz22/result-1.png)
+![result](images/dz22/result-2.png)

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Все события</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Все события</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Дата</th>
+        <th>Место проведения</th>
+    </tr>
+    <tr th:each="event : ${events}">
+        <td th:text="${event.id}">1</td>
+        <td th:text="${event.name}">Название события</td>
+        <td th:text="${event.eventDate}">Дата</td>
+        <td th:text="${event.place}">Место</td>
+    </tr>
+</table>
+<a href="/">Назад в меню</a>
+</body>
+</html>

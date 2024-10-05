@@ -11,6 +11,8 @@ import com.example.spring_postgres_demo.model.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class EventCreationService {
 
@@ -27,12 +29,15 @@ public class EventCreationService {
 
     // Создание нового ивента
     public void createEvent(EventCreationDTO eventCreationDTO) {
-        // Проверка существования места
+        if (eventCreationDTO.getTicketPacks() == null) {
+            eventCreationDTO.setTicketPacks(new ArrayList<>()); // Инициализировать пустым списком, если он null
+        }
+
         Place place = placeRepository.findById(eventCreationDTO.getPlace().getId())
                 .orElseGet(() -> {
                     Place newPlace = new Place();
                     newPlace.setName(eventCreationDTO.getPlace().getName());
-                    return placeRepository.save(newPlace); // Сохраняем новое место
+                    return placeRepository.save(newPlace);
                 });
 
         Event event = new Event();
@@ -40,9 +45,9 @@ public class EventCreationService {
         event.setEventDate(eventCreationDTO.getEventDate());
         event.setPlace(place);
 
-        event = eventRepository.save(event); // Сохраняем ивент
+        event = eventRepository.save(event);
 
-        // Создание билетов
+        // Итерация по инициализированному списку ticketPacks
         for (TicketPackDTO ticketPack : eventCreationDTO.getTicketPacks()) {
             for (int i = 0; i < ticketPack.getCount(); i++) {
                 Ticket ticket = new Ticket();

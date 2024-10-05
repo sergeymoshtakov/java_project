@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск билетов</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Поиск свободных билетов по событию</h1>
+<form action="/find-tickets" method="post">
+    <label for="eventId">Введите ID события:</label>
+    <input type="text" id="eventId" name="eventId"><br>
+    <button type="submit">Найти билеты</button>
+</form>
+
+<h2>Доступные билеты</h2>
+<ul>
+    <li th:each="ticket : ${tickets}" th:text="${ticket}">Описание билета</li>
+</ul>
+
+<a href="/">Назад в меню</a>
+</body>
+</html>

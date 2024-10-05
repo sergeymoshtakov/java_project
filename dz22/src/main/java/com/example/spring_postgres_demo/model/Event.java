@@ -17,13 +17,11 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="name")
+    @Column(name="event_date")
     private LocalDateTime eventDate;
 
-    @Column(name="event_date")
+    @Column(name="name")
     private String name;
-
-
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
     private List<Ticket> tickets;

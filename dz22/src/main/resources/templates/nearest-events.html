@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ближайшие события</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Ближайшие события</h1>
+<ul>
+    <li th:each="event : ${nearestEvents}" th:text="${event}">Описание события</li>
+</ul>
+<a href="/">Назад в меню</a>
+</body>
+</html>

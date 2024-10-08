@@ -1,9 +1,13 @@
 package com.example.spring_postgres_demo.factory;
 
+import com.example.spring_postgres_demo.dao.cargoType.CargoTypeRepository;
+import com.example.spring_postgres_demo.dao.destination.DestinationRepository;
+import com.example.spring_postgres_demo.dao.status.StatusRepository;
 import com.example.spring_postgres_demo.model.CargoType;
 import com.example.spring_postgres_demo.model.Destination;
 import com.example.spring_postgres_demo.model.PendingRequest;
 import com.example.spring_postgres_demo.model.Status;
+import com.example.spring_postgres_demo.util.RandomElements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,23 +17,22 @@ import java.util.Random;
 
 @Service
 public class PendingRequestFactory implements IFactory {
+    @Autowired
+    private CargoTypeRepository cargoTypeRepository;
 
     @Autowired
-    private DestinationFactory destinationFactory;
+    private StatusRepository statusRepository;
 
     @Autowired
-    private CargoTypeFactory cargoTypeFactory;
-
-    @Autowired
-    private StatusFactory statusFactory;
+    private DestinationRepository destinationRepository;
 
     @Override
     public PendingRequest getRandomElement() {
         Random random = new Random();
 
-        Destination randomDestination = destinationFactory.getRandomElement();
-        CargoType randomCargoType = cargoTypeFactory.getRandomElement();
-        Status randomStatus = statusFactory.getRandomElement();
+        Destination randomDestination = RandomElements.getRandomElement(destinationRepository.findAll());
+        CargoType randomCargoType = RandomElements.getRandomElement(cargoTypeRepository.findAll());
+        Status randomStatus = RandomElements.getRandomElement(statusRepository.findAll());
 
         double randomCargoWeight = 1000.0 + (5000.0 - 1000.0) * random.nextDouble();
 

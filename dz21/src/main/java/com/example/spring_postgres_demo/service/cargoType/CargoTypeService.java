@@ -54,4 +54,14 @@ public class CargoTypeService implements ICargoTypeService {
     public CargoType findById(int id) {
         return cargoTypeRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public CargoType findByName(String cargoType) {
+        for (CargoType cargo : cargoTypeRepository.findAll()) {
+            if (cargo.getName().equals(cargoType)) {
+                return cargo;
+            }
+        }
+        return null;
+    }
 }

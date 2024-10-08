@@ -18,4 +18,6 @@ public interface ICargoTypeService {
     void deleteAll() ;
 
     CargoType findById(int id);
+
+    CargoType findByName(String cargoType);
 }

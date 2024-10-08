@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Меню управления системой</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<h1>Меню управления системой Автобаза</h1>
+<ul>
+    <li><a th:href="@{/cars}">Управление Автомобилями</a></li>
+    <li><a th:href="@{/drivers}">Управление Водителями</a></li>
+    <li><a th:href="@{/cargoTypes}">Управление Типами Груза</a></li>
+    <li><a th:href="@{/destinations}">Управление Пунктами Назначения</a></li>
+    <li><a th:href="@{/pending-requests}">Просмотр заявок на рейс</a></li>
+    <li><a th:href="@{/requests}">Просмотр рейсов</a></li>
+    <li><a th:href="@{/repairs}">Управление Ремонтом</a></li>
+    <li><a th:href="@{/statistics}">Просмотр Статистики</a></li>
+</ul>
+</body>
+</html>

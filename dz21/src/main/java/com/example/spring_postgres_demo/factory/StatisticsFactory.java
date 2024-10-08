@@ -1,5 +1,7 @@
 package com.example.spring_postgres_demo.factory;
 
+import com.example.spring_postgres_demo.dao.cargoType.CargoTypeRepository;
+import com.example.spring_postgres_demo.dao.destination.DestinationRepository;
 import com.example.spring_postgres_demo.model.CargoType;
 import com.example.spring_postgres_demo.model.Destination;
 import com.example.spring_postgres_demo.model.Statistics;
@@ -15,10 +17,10 @@ import java.util.Random;
 public class StatisticsFactory implements IFactory {
 
     @Autowired
-    private DestinationFactory destinationFactory;
+    private DestinationRepository destinationRepository;
 
     @Autowired
-    private CargoTypeFactory cargoTypeFactory;
+    private CargoTypeRepository cargoTypeRepository;
 
     private static final String[] FIRST_NAMES = {
             "John", "Alice", "Robert", "Emma", "Michael", "Olivia", "James", "Sophia"
@@ -35,8 +37,8 @@ public class StatisticsFactory implements IFactory {
         String randomFirstName = RandomElements.getRandomElement(FIRST_NAMES);
         String randomLastName = RandomElements.getRandomElement(LAST_NAMES);
 
-        Destination randomDestination = destinationFactory.getRandomElement();
-        CargoType randomCargoType = cargoTypeFactory.getRandomElement();
+        Destination randomDestination = RandomElements.getRandomElement(destinationRepository.findAll());
+        CargoType randomCargoType = RandomElements.getRandomElement(cargoTypeRepository.findAll());
 
         double randomCargoWeight = 1000 + (4000 * random.nextDouble());
 

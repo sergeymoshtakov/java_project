@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cargo Types List</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<h2>Cargo Types List</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="cargoType : ${cargoTypes}">
+        <td th:text="${cargoType.id}"></td>
+        <td th:text="${cargoType.name}"></td>
+        <td>
+            <a th:href="@{/cargoTypes/update/{id}(id=${cargoType.id})}">Edit</a>
+            <a th:href="@{/cargoTypes/delete/{id}(id=${cargoType.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+<a th:href="@{/cargoTypes/add}">Add New Cargo Type</a>
+<a th:href="@{/}">Вернуться в меню</a>
+</body>
+</html>

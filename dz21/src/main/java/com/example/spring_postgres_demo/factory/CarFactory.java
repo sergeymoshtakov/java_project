@@ -5,6 +5,7 @@ import com.example.spring_postgres_demo.model.Car;
 import com.example.spring_postgres_demo.model.Status;
 import com.example.spring_postgres_demo.util.RandomElements;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.env.RandomValuePropertySourceEnvironmentPostProcessor;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
@@ -24,9 +25,6 @@ public class CarFactory implements IFactory {
     public static final double MIN_LOAD_CAPACITY = 5000.0;
     public static final double MAX_LOAD_CAPACITY = 20000.0;
 
-    @Autowired
-    private StatusFactory statusFactory;
-
     @Override
     public Car getRandomElement() {
         Random random = new Random();
@@ -35,9 +33,7 @@ public class CarFactory implements IFactory {
         double loadCapacity = MIN_LOAD_CAPACITY + (MAX_LOAD_CAPACITY - MIN_LOAD_CAPACITY) * random.nextDouble();
         boolean isBroken = random.nextBoolean();
 
-        Status status = statusFactory.getRandomElement();
-        int id = statusRepository.findIdByName(status.getName());
-        status.setId(id);
+        Status status = RandomElements.getRandomElement(statusRepository.findAll());
 
         Car car = new Car();
         car.setModel(model);

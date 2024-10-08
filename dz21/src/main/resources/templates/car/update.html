@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Car</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<h2>Update Car</h2>
+
+<!-- Форма для редактирования автомобиля -->
+<form th:action="@{/cars/update}" th:object="${car}" method="post">
+    <!-- Поле для ID автомобиля (только для чтения) -->
+    <div>
+        <label>ID:</label>
+        <input type="text" th:field="*{id}" readonly />
+    </div>
+
+    <!-- Поле для модели автомобиля -->
+    <div>
+        <label>Model:</label>
+        <input type="text" th:field="*{model}" />
+    </div>
+
+    <!-- Поле для грузоподъемности автомобиля -->
+    <div>
+        <label>Load Capacity:</label>
+        <input type="number" th:field="*{loadCapacity}" />
+    </div>
+
+    <!-- Поле для доступности автомобиля -->
+    <div>
+        <label>Is Available:</label>
+        <input type="checkbox" th:field="*{available}" />
+    </div>
+
+    <!-- Кнопка для отправки формы -->
+    <div>
+        <button type="submit">Update Car</button>
+    </div>
+</form>
+
+<!-- Кнопка для возврата к списку автомобилей -->
+<a th:href="@{/cars}">Back to Car List</a>
+</body>
+</html>

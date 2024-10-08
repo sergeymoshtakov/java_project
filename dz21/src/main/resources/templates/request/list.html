@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Request List</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<h2>Request List</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Destination</th>
+        <th>Cargo Type</th>
+        <th>Cargo Weight</th>
+        <th>Driver</th>
+        <th>Car</th>
+        <th>Status</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="request : ${requests}">
+        <td th:text="${request.id}"></td>
+        <td th:text="${request.destinationId}"></td>
+        <td th:text="${request.cargoTypeId}"></td>
+        <td th:text="${request.cargoWeight}"></td>
+        <td th:text="${request.driverId}"></td>
+        <td th:text="${request.carId}"></td>
+        <td th:text="${request.statusId}"></td>
+        <td th:text="${@dateTimeUtils.format(request.startTime)}"></td> <!-- Изменено на пользовательский метод -->
+        <td th:text="${@dateTimeUtils.format(request.endTime)}"></td>   <!-- Изменено на пользовательский метод -->
+        <td>
+            <a th:href="@{/requests/{id}/edit(id=${request.id})}">Edit</a> |
+            <a th:href="@{/requests/{id}/delete(id=${request.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/requests/create}">Add New Request</a>
+<br/>
+<a th:href="@{/}">Back to Menu</a>
+</body>
+</html>

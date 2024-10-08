@@ -34,9 +34,7 @@ public class DriverFactory implements IFactory {
         int experience = MIN_EXPERIENCE + random.nextInt(MAX_EXPERIENCE - MIN_EXPERIENCE + 1);
         double salary = MIN_SALARY + (MAX_SALARY - MIN_SALARY) * random.nextDouble();
 
-        Status status = statusFactory.getRandomElement();
-        int id = statusRepository.findIdByName(status.getName());
-        status.setId(id);
+        Status status = RandomElements.getRandomElement(statusRepository.findAll());
 
         Driver driver = new Driver();
         driver.setFirstName(firstName);

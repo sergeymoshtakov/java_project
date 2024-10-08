@@ -1,6 +1,12 @@
 package com.example.spring_postgres_demo.factory;
 
+import com.example.spring_postgres_demo.dao.car.CarRepository;
+import com.example.spring_postgres_demo.dao.cargoType.CargoTypeRepository;
+import com.example.spring_postgres_demo.dao.destination.DestinationRepository;
+import com.example.spring_postgres_demo.dao.driver.DriverRepository;
+import com.example.spring_postgres_demo.dao.status.StatusRepository;
 import com.example.spring_postgres_demo.model.*;
+import com.example.spring_postgres_demo.util.RandomElements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,29 +19,29 @@ import java.util.Random;
 public class RequestFactory implements IFactory {
 
     @Autowired
-    private DestinationFactory destinationFactory;
+    private DestinationRepository destinationRepository;
 
     @Autowired
-    private CargoTypeFactory cargoTypeFactory;
+    private CargoTypeRepository cargoTypeRepository;
 
     @Autowired
-    private DriverFactory driverFactory;
+    private DriverRepository driverRepository;
 
     @Autowired
-    private CarFactory carFactory;
+    private CarRepository carRepository;
 
     @Autowired
-    private StatusFactory statusFactory;
+    private StatusRepository statusRepository;
 
     @Override
     public Request getRandomElement() {
         Random random = new Random();
 
-        Destination randomDestination = destinationFactory.getRandomElement();
-        CargoType randomCargoType = cargoTypeFactory.getRandomElement();
-        Driver randomDriver = driverFactory.getRandomElement();
-        Car randomCar = carFactory.getRandomElement();
-        Status randomStatus = statusFactory.getRandomElement();
+        Destination randomDestination = RandomElements.getRandomElement(destinationRepository.findAll());
+        CargoType randomCargoType = RandomElements.getRandomElement(cargoTypeRepository.findAll());
+        Driver randomDriver = RandomElements.getRandomElement(driverRepository.findAll());
+        Car randomCar = RandomElements.getRandomElement(carRepository.findAll());
+        Status randomStatus = RandomElements.getRandomElement(statusRepository.findAll());
 
         double randomCargoWeight = 500 + (1500 * random.nextDouble());
 

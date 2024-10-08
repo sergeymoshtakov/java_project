@@ -4,7 +4,9 @@ public enum Statuses {
 
     ACTIVE(1, "Active"),
     PENDING(2, "Pending"),
-    COMPLETED(3, "Completed"),;
+    COMPLETED(3, "Completed"),
+    AVAILABLE(4, "Available"),
+    UNAVAILABLE(5, "Unavailable");
 
     int id;
     String name;

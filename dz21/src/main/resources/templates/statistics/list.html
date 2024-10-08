@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistics List</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<h2>Statistics List</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Driver First Name</th>
+        <th>Driver Last Name</th>
+        <th>Destination</th>
+        <th>Cargo Type</th>
+        <th>Cargo Weight</th>
+        <th>Income</th>
+        <th>Timestamp</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="stat : ${statistics}">
+        <td th:text="${stat.id}"></td>
+        <td th:text="${stat.driverFirstName}"></td>
+        <td th:text="${stat.driverLastName}"></td>
+        <td th:text="${stat.destinationName}"></td>
+        <td th:text="${stat.cargoTypeName}"></td>
+        <td th:text="${stat.cargoWeight}"></td>
+        <td th:text="${stat.income}"></td>
+        <td th:text="${#dates.format(stat.timestamp, 'yyyy-MM-dd HH:mm:ss')}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/}">Back to Menu</a>
+</body>
+</html>

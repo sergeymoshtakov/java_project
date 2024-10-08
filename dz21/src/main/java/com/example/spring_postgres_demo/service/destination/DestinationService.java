@@ -54,4 +54,14 @@ public class DestinationService implements IDestinationService {
     public Destination findById(int id) {
         return destinationRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public Destination findByName(String destination) {
+        for (Destination destination1 : destinationRepository.findAll()) {
+            if (destination1.getName().equals(destination)) {
+                return destination1;
+            }
+        }
+        return null;
+    }
 }

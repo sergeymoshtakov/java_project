@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Drivers List</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<h2>Drivers List</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Experience</th>
+        <th>Available</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="driver : ${drivers}">
+        <td th:text="${driver.id}"></td>
+        <td th:text="${driver.name}"></td>
+        <td th:text="${driver.experience}"></td>
+        <td th:text="${driver.available}"></td>
+        <td>
+            <a th:href="@{/drivers/update/{id}(id=${driver.id})}">Edit</a>
+            <a th:href="@{/drivers/delete/{id}(id=${driver.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+<a th:href="@{/drivers/add}">Add New Driver</a>
+<a th:href="@{/}">Вернуться в меню</a>
+</body>
+</html>

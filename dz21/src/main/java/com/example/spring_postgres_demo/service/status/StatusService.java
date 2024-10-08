@@ -63,4 +63,14 @@ public class StatusService implements IStatusService {
     public int findIdByStatus(Status status) {
         return statusRepository.findIdByName(status.getName());
     }
+
+    @Override
+    public Status findByName(String s) {
+        for(Status status : statusRepository.findAll()) {
+            if (status.getName().equals(s)) {
+                return status;
+            }
+        }
+        return null;
+    }
 }

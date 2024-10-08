@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Добавить автомобиль</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<h1>Добавить автомобиль</h1>
+<form th:action="@{/cars/add}" th:object="${car}" method="post">
+    <label>Модель: <input type="text" th:field="*{model}"/></label><br/>
+    <label>Грузоподъемность: <input type="number" th:field="*{loadCapacity}"/></label><br/>
+    <button type="submit">Сохранить</button>
+</form>
+</body>
+</html>

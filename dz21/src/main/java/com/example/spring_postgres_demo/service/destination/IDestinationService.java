@@ -18,4 +18,6 @@ public interface IDestinationService {
     void deleteAll() ;
 
     Destination findById(int id);
+
+    Destination findByName(String destination);
 }

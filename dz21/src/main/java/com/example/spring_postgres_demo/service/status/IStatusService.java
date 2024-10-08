@@ -20,4 +20,6 @@ public interface IStatusService {
     Status findById(int id);
 
     int findIdByStatus(Status status);
+
+    Status findByName(String s);
 }

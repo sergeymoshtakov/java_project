@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Repair</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<h2>Add New Repair</h2>
+<form th:action="@{/repairs/add}" th:object="${repair}" method="post">
+    <label for="carId">Car:</label>
+    <select id="carId" th:field="*{carId}">
+        <option th:each="car : ${cars}" th:value="${car.id}" th:text="${car.model}"></option>
+    </select>
+    <br/>
+    <label for="driverId">Driver:</label>
+    <select id="driverId" th:field="*{driverId}">
+        <option th:each="driver : ${drivers}" th:value="${driver.id}" th:text="${driver.firstName + ' ' + driver.lastName}"></option>
+    </select>
+    <br/>
+    <label for="repairTime">Repair Time:</label>
+    <input type="datetime-local" id="repairTime" th:field="*{repairTime}" />
+    <br/>
+    <label for="fixed">Is Fixed:</label>
+    <input type="checkbox" id="fixed" th:field="*{fixed}" />
+    <br/>
+    <button type="submit">Save</button>
+</form>
+<br/>
+<a th:href="@{/repairs}">Back to Repair List</a>
+</body>
+</html>

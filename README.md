@@ -144,3 +144,15 @@
 
 ## Введение в Web
 ![result](images/dz23/result-1.png)
+
+## Spring Thymeleaf. Шаблонизатор Web страниц.
+![result](images/dz24/result-1.png)
+![result](images/dz24/result-2.png)
+![result](images/dz24/result-3.png)
+![result](images/dz24/result-4.png)
+![result](images/dz24/result-5.png)
+![result](images/dz24/result-6.png)
+![result](images/dz24/result-7.png)
+![result](images/dz24/result-8.png)
+![result](images/dz24/result-9.png)
+![result](images/dz24/result-10.png)

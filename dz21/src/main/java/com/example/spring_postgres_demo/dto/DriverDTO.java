@@ -1,0 +1,15 @@
+package com.example.spring_postgres_demo.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class DriverDTO {
+    private int id;
+    private String name;
+    private int experience;
+    private boolean isAvailable;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Request</title>
+</head>
+<body>
+<h1>Create Request</h1>
+<form th:action="@{/pending-requests/{id}/create-request(id=${pendingRequestId})}" th:object="${requestDTO}" method="post">
+    <label for="destinationId">Destination:</label>
+    <select id="destinationId" th:field="*{destinationId}" required>
+        <option th:each="destination : ${destinations}"
+                th:value="${destination.id}"
+                th:text="${destination.name}"></option>
+    </select>
+    <br/>
+
+    <label for="cargoTypeId">Cargo Type:</label>
+    <select id="cargoTypeId" th:field="*{cargoTypeId}" required>
+        <option th:each="cargoType : ${cargoTypes}"
+                th:value="${cargoType.id}"
+                th:text="${cargoType.name}"></option>
+    </select>
+    <br/>
+
+    <label for="cargoWeight">Cargo Weight:</label>
+    <input type="number" id="cargoWeight" th:field="*{cargoWeight}" required/>
+
+    <label for="driverId">Driver:</label>
+    <select id="driverId" th:field="*{driverId}" required>
+        <option th:each="driver : ${drivers}"
+                th:value="${driver.id}"
+                th:text="${driver.firstName} + ' ' + ${driver.lastName}"></option>
+    </select>
+    <br/>
+
+    <label for="carId">Car:</label>
+    <select id="carId" th:field="*{carId}" required>
+        <option th:each="car : ${cars}"
+                th:value="${car.id}"
+                th:text="${car.model}"></option>
+    </select>
+    <br/>
+
+    <label for="statusId">Status:</label>
+    <select id="statusId" th:field="*{statusId}" required>
+        <option th:each="status : ${statuses}"
+                th:value="${status.id}"
+                th:text="${status.name}"></option>
+    </select>
+    <br/>
+
+    <button type="submit">Create</button>
+</form>
+<a th:href="@{/pending-requests}">Back to List</a>
+</body>
+</html>

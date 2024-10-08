@@ -35,14 +35,12 @@ public class Repair {
         if (o == null || getClass() != o.getClass()) return false;
         Repair repair = (Repair) o;
         return id == repair.id
-                && car.equals(repair.car)
-                && driver.equals(repair.driver)
                 && repairTime.equals(repair.repairTime)
                 && isFixed == repair.isFixed;
     }
 
     @Override
     public String toString() {
-        return String.format("Repair{id=%d, car=%s, driver=%s, repairTime=%s, isFixed=%s}", id, car, driver, repairTime, isFixed);
+        return String.format("Repair{id=%d, repairTime=%s, isFixed=%s}", id, repairTime, isFixed);
     }
 }

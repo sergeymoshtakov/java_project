@@ -12,6 +12,7 @@ import com.example.spring_postgres_demo.service.cargoType.CargoTypeService;
 import com.example.spring_postgres_demo.service.destination.DestinationService;
 import com.example.spring_postgres_demo.service.driver.DriverService;
 import com.example.spring_postgres_demo.service.pendingRequest.PendingRequestService;
+import com.example.spring_postgres_demo.service.repair.RepairService;
 import com.example.spring_postgres_demo.service.request.RequestService;
 import com.example.spring_postgres_demo.service.statistics.StatisticsService;
 import com.example.spring_postgres_demo.service.status.StatusService;
@@ -55,16 +56,16 @@ public class AutobaseDBInitializer{
     private RequestService requestService;
 
     @Autowired
-    private RequestService repairService;
+    private RepairService repairService;
 
     @Autowired
     private StatisticsService statisticsService;
 
     public void cleanAll(){
+        repairService.deleteAll();
         requestService.deleteAll();
         pendingRequestService.deleteAll();
         carService.deleteAll();
-        repairService.deleteAll();
         driverService.deleteAll();
         statisticsService.deleteAll();
         statusService.deleteAll();

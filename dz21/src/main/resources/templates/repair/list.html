@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Repair List</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<h2>Repair List</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Car</th>
+        <th>Driver</th>
+        <th>Repair Time</th>
+        <th>Is Fixed</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="repair : ${repairs}">
+        <td th:text="${repair.id}"></td>
+        <td th:text="${repair.carModel}"></td>
+        <td th:text="${repair.driverName}"></td>
+        <td th:text="${@dateTimeUtils.format(repair.repairTime)}"></td>
+        <td th:text="${repair.isFixed ? 'Yes' : 'No'}"></td>
+        <td>
+            <a th:href="@{/repairs/update/{id}(id=${repair.id})}">Edit</a> |
+            <a th:href="@{/repairs/delete/{id}(id=${repair.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/repairs/add}">Add New Repair</a>
+<br/>
+<a th:href="@{/}">Back to Menu</a>
+</body>
+</html>

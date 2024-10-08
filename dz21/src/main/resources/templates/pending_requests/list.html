@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pending Requests</title>
+</head>
+<body>
+<h1>Pending Requests</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Destination</th>
+        <th>Cargo Type</th>
+        <th>Cargo Weight</th>
+        <th>Status</th>
+        <th>Creation Time</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="request : ${pendingRequests}">
+        <td th:text="${request.id}"></td>
+        <td th:text="${request.destination != null ? request.destination.name : 'N/A'}"></td>
+        <td th:text="${request.cargoType != null ? request.cargoType.name : 'N/A'}"></td>
+        <td th:text="${request.cargoWeight}"></td>
+        <td th:text="${request.status != null ? request.status.name : 'N/A'}"></td>
+        <td th:text="${request.creationTime}"></td>
+        <td>
+            <a th:href="@{/pending-requests/{id}/edit(id=${request.id})}">Edit</a>
+            <a th:href="@{/pending-requests/{id}/create-request(id=${request.id})}">Create Request</a>
+            <a th:href="@{/pending-requests/{id}/delete(id=${request.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br/>
+<a th:href="@{/pending-requests/new}">Create New Request</a>
+<br/>
+<a th:href="@{/}">Back to Menu</a>
+</body>
+</html>

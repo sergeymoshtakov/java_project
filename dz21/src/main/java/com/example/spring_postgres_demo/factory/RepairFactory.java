@@ -1,8 +1,11 @@
 package com.example.spring_postgres_demo.factory;
 
+import com.example.spring_postgres_demo.dao.car.CarRepository;
+import com.example.spring_postgres_demo.dao.driver.DriverRepository;
 import com.example.spring_postgres_demo.model.Car;
 import com.example.spring_postgres_demo.model.Driver;
 import com.example.spring_postgres_demo.model.Repair;
+import com.example.spring_postgres_demo.util.RandomElements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,17 +17,17 @@ import java.util.Random;
 public class RepairFactory implements IFactory {
 
     @Autowired
-    private CarFactory carFactory;
+    private CarRepository carRepository;
 
     @Autowired
-    private DriverFactory driverFactory;
+    private DriverRepository driverRepository;
 
     @Override
     public Repair getRandomElement() {
         Random random = new Random();
 
-        Car randomCar = carFactory.getRandomElement();
-        Driver randomDriver = driverFactory.getRandomElement();
+        Car randomCar = RandomElements.getRandomElement(carRepository.findAll());
+        Driver randomDriver = RandomElements.getRandomElement(driverRepository.findAll());
 
         boolean isFixed = random.nextBoolean();
 

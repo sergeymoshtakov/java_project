@@ -161,3 +161,9 @@
 ![result](images/dz25/result-1.png)
 ![result](images/dz25/result-2.png)
 ![result](images/dz25/result-3.png)
+
+## Spring Security. Практика.
+![result](images/dz26/result-1.png)
+![result](images/dz26/result-2.png)
+![result](images/dz26/result-3.png)
+![result](images/dz26/result-4.png)

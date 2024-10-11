@@ -2,20 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Repair List</title>
+    <title>Список Ремонтов</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
-<h2>Repair List</h2>
+<h2>Список Ремонтов</h2>
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>Car</th>
-        <th>Driver</th>
-        <th>Repair Time</th>
-        <th>Is Fixed</th>
-        <th>Actions</th>
+        <th>Автомобиль</th>
+        <th>Водитель</th>
+        <th>Время Ремонта</th>
+        <th>Исправлено</th>
+        <th>Действия</th>
     </tr>
     </thead>
     <tbody>
@@ -24,16 +24,16 @@
         <td th:text="${repair.carModel}"></td>
         <td th:text="${repair.driverName}"></td>
         <td th:text="${@dateTimeUtils.format(repair.repairTime)}"></td>
-        <td th:text="${repair.isFixed ? 'Yes' : 'No'}"></td>
+        <td th:text="${repair.isFixed ? 'Да' : 'Нет'}"></td>
         <td>
-            <a th:href="@{/repairs/update/{id}(id=${repair.id})}">Edit</a> |
-            <a th:href="@{/repairs/delete/{id}(id=${repair.id})}">Delete</a>
+            <a th:href="@{/repairs/update/{id}(id=${repair.id})}">Редактировать</a> |
+            <a th:href="@{/repairs/delete/{id}(id=${repair.id})}">Удалить</a>
         </td>
     </tr>
     </tbody>
 </table>
-<a th:href="@{/repairs/add}">Add New Repair</a>
+<a th:href="@{/repairs/add}">Добавить Новый Ремонт</a>
 <br/>
-<a th:href="@{/}">Back to Menu</a>
+<a th:href="@{/}">Назад в Меню</a>
 </body>
 </html>

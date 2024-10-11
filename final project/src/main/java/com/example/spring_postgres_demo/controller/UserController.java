@@ -44,4 +44,10 @@ public class UserController {
         userService.save(user); // Сохраняем пользователя в базе данных
         return "redirect:/login"; // Перенаправляем на страницу логина после успешной регистрации
     }
+
+    @GetMapping("/logout")
+    public String logout() {
+        // Логика выхода может быть обработана Spring Security
+        return "redirect:/login?logout"; // Перенаправление на страницу логина с параметром logout
+    }
 }

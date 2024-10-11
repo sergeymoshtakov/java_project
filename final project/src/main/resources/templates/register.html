@@ -8,7 +8,7 @@
 <body>
 <section class="section">
     <div class="container">
-        <h1 class="title">Регистрация</h1>
+        <h1 class="title has-text-centered">Регистрация</h1>
         <form th:action="@{/register}" th:object="${user}" method="post">
             <div class="field">
                 <label class="label">Имя пользователя</label>
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </form>
-        <p>Уже зарегистрированы? <a th:href="@{/login}">Войти</a></p>
+        <p class="has-text-centered">Уже зарегистрированы? <a th:href="@{/login}">Войти</a></p>
     </div>
 </section>
 </body>

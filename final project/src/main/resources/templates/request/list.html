@@ -2,24 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Request List</title>
+    <title>Список Запросов</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
-<h2>Request List</h2>
+<h2>Список Запросов</h2>
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>Destination</th>
-        <th>Cargo Type</th>
-        <th>Cargo Weight</th>
-        <th>Driver</th>
-        <th>Car</th>
-        <th>Status</th>
-        <th>Start Time</th>
-        <th>End Time</th>
-        <th>Actions</th>
+        <th>Место назначения</th>
+        <th>Тип груза</th>
+        <th>Вес груза</th>
+        <th>Водитель</th>
+        <th>Автомобиль</th>
+        <th>Статус</th>
+        <th>Время начала</th>
+        <th>Время окончания</th>
+        <th>Действия</th>
     </tr>
     </thead>
     <tbody>
@@ -34,14 +34,14 @@
         <td th:text="${@dateTimeUtils.format(request.startTime)}"></td> <!-- Изменено на пользовательский метод -->
         <td th:text="${@dateTimeUtils.format(request.endTime)}"></td>   <!-- Изменено на пользовательский метод -->
         <td>
-            <a th:href="@{/requests/{id}/edit(id=${request.id})}">Edit</a> |
-            <a th:href="@{/requests/{id}/delete(id=${request.id})}">Delete</a>
+            <a th:href="@{/requests/{id}/edit(id=${request.id})}">Редактировать</a> |
+            <a th:href="@{/requests/{id}/delete(id=${request.id})}">Удалить</a>
         </td>
     </tr>
     </tbody>
 </table>
-<a th:href="@{/requests/create}">Add New Request</a>
+<a th:href="@{/requests/create}">Добавить Новый Запрос</a>
 <br/>
-<a th:href="@{/}">Back to Menu</a>
+<a th:href="@{/}">Назад в Меню</a>
 </body>
 </html>

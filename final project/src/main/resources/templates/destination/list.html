@@ -2,27 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Destinations List</title>
+    <title>Список Пунктов Назначения</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
-<h2>Destinations List</h2>
+<h1>Список Пунктов Назначения</h1>
 <table>
     <tr>
         <th>ID</th>
-        <th>Name</th>
-        <th>Actions</th>
+        <th>Название</th>
+        <th>Действия</th>
     </tr>
     <tr th:each="destination : ${destinations}">
         <td th:text="${destination.id}"></td>
         <td th:text="${destination.name}"></td>
         <td>
-            <a th:href="@{/destinations/update/{id}(id=${destination.id})}">Edit</a>
-            <a th:href="@{/destinations/delete/{id}(id=${destination.id})}">Delete</a>
+            <a th:href="@{/destinations/update/{id}(id=${destination.id})}">Редактировать</a>
+            <a th:href="@{/destinations/delete/{id}(id=${destination.id})}">Удалить</a>
         </td>
     </tr>
 </table>
-<a th:href="@{/destinations/add}">Add New Destination</a>
+<a th:href="@{/destinations/add}">Добавить Новый Пункт Назначения</a>
 <a th:href="@{/}">Вернуться в меню</a>
 </body>
 </html>

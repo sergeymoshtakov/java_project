@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Create Request</title>
+    <title>Создать Запрос</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
-<h1>Create Request</h1>
+<h1>Создать Запрос</h1>
 <form th:action="@{/pending-requests/{id}/create-request(id=${pendingRequestId})}" th:object="${requestDTO}" method="post">
-    <label for="destinationId">Destination:</label>
+    <label for="destinationId">Пункт назначения:</label>
     <select id="destinationId" th:field="*{destinationId}" required>
         <option th:each="destination : ${destinations}"
                 th:value="${destination.id}"
@@ -14,7 +15,7 @@
     </select>
     <br/>
 
-    <label for="cargoTypeId">Cargo Type:</label>
+    <label for="cargoTypeId">Тип груза:</label>
     <select id="cargoTypeId" th:field="*{cargoTypeId}" required>
         <option th:each="cargoType : ${cargoTypes}"
                 th:value="${cargoType.id}"
@@ -22,10 +23,10 @@
     </select>
     <br/>
 
-    <label for="cargoWeight">Cargo Weight:</label>
+    <label for="cargoWeight">Вес груза:</label>
     <input type="number" id="cargoWeight" th:field="*{cargoWeight}" required/>
 
-    <label for="driverId">Driver:</label>
+    <label for="driverId">Водитель:</label>
     <select id="driverId" th:field="*{driverId}" required>
         <option th:each="driver : ${drivers}"
                 th:value="${driver.id}"
@@ -33,7 +34,7 @@
     </select>
     <br/>
 
-    <label for="carId">Car:</label>
+    <label for="carId">Автомобиль:</label>
     <select id="carId" th:field="*{carId}" required>
         <option th:each="car : ${cars}"
                 th:value="${car.id}"
@@ -41,7 +42,7 @@
     </select>
     <br/>
 
-    <label for="statusId">Status:</label>
+    <label for="statusId">Статус:</label>
     <select id="statusId" th:field="*{statusId}" required>
         <option th:each="status : ${statuses}"
                 th:value="${status.id}"
@@ -49,8 +50,8 @@
     </select>
     <br/>
 
-    <button type="submit">Create</button>
+    <button type="submit">Создать</button>
 </form>
-<a th:href="@{/pending-requests}">Back to List</a>
+<a th:href="@{/pending-requests}">Назад к Списку</a>
 </body>
 </html>

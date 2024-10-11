@@ -2,28 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Driver</title>
+    <title>Добавить Водителя</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
-<h2>Add Driver</h2>
+<h1>Добавить Водителя</h1>
 <form th:action="@{/drivers/add}" th:object="${driver}" method="post">
     <div>
-        <label>Name:</label>
+        <label>Имя:</label>
         <input type="text" th:field="*{name}" />
     </div>
     <div>
-        <label>Experience:</label>
+        <label>Опыт:</label>
         <input type="number" th:field="*{experience}" />
     </div>
     <div>
-        <label>Is Available:</label>
+        <label>Доступен:</label>
         <input type="checkbox" th:field="*{available}" />
     </div>
     <div>
-        <button type="submit">Save Driver</button>
+        <button type="submit">Сохранить Водителя</button>
     </div>
 </form>
-<a th:href="@{/drivers}">Back to Drivers List</a>
+<a th:href="@{/drivers}">Назад к Списку Водителей</a>
 </body>
 </html>

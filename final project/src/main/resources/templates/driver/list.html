@@ -2,18 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Drivers List</title>
+    <title>Список Водителей</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
-<h2>Drivers List</h2>
+<h1>Список Водителей</h1>
 <table>
     <tr>
         <th>ID</th>
-        <th>Name</th>
-        <th>Experience</th>
-        <th>Available</th>
-        <th>Actions</th>
+        <th>Имя</th>
+        <th>Опыт</th>
+        <th>Доступен</th>
+        <th>Действия</th>
     </tr>
     <tr th:each="driver : ${drivers}">
         <td th:text="${driver.id}"></td>
@@ -21,12 +21,12 @@
         <td th:text="${driver.experience}"></td>
         <td th:text="${driver.available}"></td>
         <td>
-            <a th:href="@{/drivers/update/{id}(id=${driver.id})}">Edit</a>
-            <a th:href="@{/drivers/delete/{id}(id=${driver.id})}">Delete</a>
+            <a th:href="@{/drivers/update/{id}(id=${driver.id})}">Редактировать</a>
+            <a th:href="@{/drivers/delete/{id}(id=${driver.id})}">Удалить</a>
         </td>
     </tr>
 </table>
-<a th:href="@{/drivers/add}">Add New Driver</a>
+<a th:href="@{/drivers/add}">Добавить Нового Водителя</a>
 <a th:href="@{/}">Вернуться в меню</a>
 </body>
 </html>

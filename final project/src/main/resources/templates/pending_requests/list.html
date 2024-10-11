@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Pending Requests</title>
+    <title>Ожидающие Запросы</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
-<h1>Pending Requests</h1>
+<h1>Ожидающие Запросы</h1>
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>Destination</th>
-        <th>Cargo Type</th>
-        <th>Cargo Weight</th>
-        <th>Status</th>
-        <th>Creation Time</th>
-        <th>Actions</th>
+        <th>Пункт назначения</th>
+        <th>Тип груза</th>
+        <th>Вес груза</th>
+        <th>Статус</th>
+        <th>Время создания</th>
+        <th>Действия</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="request : ${pendingRequests}">
         <td th:text="${request.id}"></td>
-        <td th:text="${request.destination != null ? request.destination.name : 'N/A'}"></td>
-        <td th:text="${request.cargoType != null ? request.cargoType.name : 'N/A'}"></td>
+        <td th:text="${request.destination != null ? request.destination.name : 'Нет данных'}"></td>
+        <td th:text="${request.cargoType != null ? request.cargoType.name : 'Нет данных'}"></td>
         <td th:text="${request.cargoWeight}"></td>
-        <td th:text="${request.status != null ? request.status.name : 'N/A'}"></td>
-        <td th:text="${request.creationTime}"></td>
+        <td th:text="${request.status != null ? request.status.name : 'Нет данных'}"></td>
+        <td th:text="${@dateTimeUtils.format(request.creationTime)}"></td>
         <td>
-            <a th:href="@{/pending-requests/{id}/edit(id=${request.id})}">Edit</a>
-            <a th:href="@{/pending-requests/{id}/create-request(id=${request.id})}">Create Request</a>
-            <a th:href="@{/pending-requests/{id}/delete(id=${request.id})}">Delete</a>
+            <a th:href="@{/pending-requests/{id}/edit(id=${request.id})}">Редактировать</a>
+            <a th:href="@{/pending-requests/{id}/create-request(id=${request.id})}">Создать Запрос</a>
+            <a th:href="@{/pending-requests/{id}/delete(id=${request.id})}">Удалить</a>
         </td>
     </tr>
     </tbody>
 </table>
 <br/>
-<a th:href="@{/pending-requests/new}">Create New Request</a>
+<a th:href="@{/pending-requests/new}">Создать Новый Запрос</a>
 <br/>
-<a th:href="@{/}">Back to Menu</a>
+<a th:href="@{/}">Вернуться в меню</a>
 </body>
 </html>

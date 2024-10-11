@@ -1,23 +1,109 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Меню управления системой</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        nav {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #4CAF50;
+            background-color: #f2f2f2;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #e0e0e0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
 <h1>Меню управления системой Автобаза</h1>
-<ul>
-    <li><a th:href="@{/cars}">Управление Автомобилями</a></li>
-    <li><a th:href="@{/drivers}">Управление Водителями</a></li>
-    <li><a th:href="@{/cargoTypes}">Управление Типами Груза</a></li>
-    <li><a th:href="@{/destinations}">Управление Пунктами Назначения</a></li>
-    <li><a th:href="@{/pending-requests}">Просмотр заявок на рейс</a></li>
-    <li><a th:href="@{/requests}">Просмотр рейсов</a></li>
-    <li><a th:href="@{/repairs}">Управление Ремонтом</a></li>
-    <li><a th:href="@{/statistics}">Просмотр Статистики</a></li>
-    <li><br></li>
-    <li><a th:href="@{/register}">Зарегистрироваться</a></li>
-</ul>
+<nav>
+    <ul>
+        <!-- Пункты для зарегистрированных пользователей -->
+        <li sec:authorize="isAuthenticated()">
+            <a th:href="@{/cars}">Управление Автомобилями</a>
+        </li>
+        <li sec:authorize="isAuthenticated()">
+            <a th:href="@{/drivers}">Управление Водителями</a>
+        </li>
+        <li sec:authorize="isAuthenticated()">
+            <a th:href="@{/cargoTypes}">Управление Типами Груза</a>
+        </li>
+        <li sec:authorize="isAuthenticated()">
+            <a th:href="@{/destinations}">Управление Пунктами Назначения</a>
+        </li>
+        <li sec:authorize="isAuthenticated()">
+            <a th:href="@{/pending-requests}">Просмотр заявок на рейс</a>
+        </li>
+        <li sec:authorize="isAuthenticated()">
+            <a th:href="@{/requests}">Просмотр рейсов</a>
+        </li>
+        <li sec:authorize="isAuthenticated()">
+            <a th:href="@{/repairs}">Управление Ремонтом</a>
+        </li>
+        <li sec:authorize="isAuthenticated()">
+            <a th:href="@{/statistics}">Просмотр Статистики</a>
+        </li>
+
+        <!-- Пункты для гостей (незарегистрированных пользователей) -->
+        <li sec:authorize="isAnonymous()">
+            <a th:href="@{/login}">Войти</a>
+        </li>
+        <li sec:authorize="isAnonymous()">
+            <a th:href="@{/register}">Зарегистрироваться</a>
+        </li>
+
+        <!-- Пункт выхода для зарегистрированных пользователей -->
+        <li sec:authorize="isAuthenticated()">
+            <a th:href="@{/logout}">Выход</a>
+        </li>
+    </ul>
+</nav>
+<footer>
+    <p>&copy; 2024 Автобаза. Все права защищены.</p>
+</footer>
 </body>
 </html>

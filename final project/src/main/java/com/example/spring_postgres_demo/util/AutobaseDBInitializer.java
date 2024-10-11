@@ -16,6 +16,7 @@ import com.example.spring_postgres_demo.service.statistics.StatisticsService;
 import com.example.spring_postgres_demo.service.status.StatusService;
 import com.example.spring_postgres_demo.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -65,6 +66,9 @@ public class AutobaseDBInitializer{
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public void cleanAll(){
         userService.deleteAll();
@@ -129,14 +133,14 @@ public class AutobaseDBInitializer{
     public void initializeUsers(){
         User admin = new User();
         admin.setUsername("admin");
-        admin.setPassword("{noop}admin123");
+        admin.setPassword(passwordEncoder.encode("admin123")); // Зашифрованный пароль
         admin.setRole(roleService.findByName(Roles.ADMIN.getRole()));
         admin.setEnabled(true);
         userService.save(admin);
 
         User user = new User();
         user.setUsername("user");
-        user.setPassword("{noop}password");
+        user.setPassword(passwordEncoder.encode("password")); // Зашифрованный пароль
         user.setRole(roleService.findByName(Roles.USER.getRole()));
         user.setEnabled(true);
         userService.save(user);

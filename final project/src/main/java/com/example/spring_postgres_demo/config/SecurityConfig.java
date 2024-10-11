@@ -32,8 +32,13 @@ public class SecurityConfig {
                 .formLogin(form -> form
                         .loginPage("/login") // Настройка пользовательской страницы логина
                         .permitAll()
+                        .defaultSuccessUrl("/", true) // Перенаправление на главную страницу после успешного входа
+                        .failureUrl("/login?error=true") // Перенаправление на страницу логина с параметром ошибки
                 )
-                .logout(LogoutConfigurer::permitAll
+                .logout(logout -> logout
+                        .logoutUrl("/logout") // URL для выхода
+                        .logoutSuccessUrl("/login?logout") // Перенаправление после успешного выхода
+                        .permitAll() // Разрешаем выход всем
                 );
         return http.build();
     }

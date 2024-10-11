@@ -2,24 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Update Cargo Type</title>
+    <title>Обновить Тип Груза</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
-<h2>Update Cargo Type</h2>
+<h1>Обновить Тип Груза</h1>
 <form th:action="@{/cargoTypes/update}" th:object="${cargoType}" method="post">
     <div>
         <label>ID:</label>
         <input type="text" th:field="*{id}" readonly />
     </div>
     <div>
-        <label>Name:</label>
+        <label>Название:</label>
         <input type="text" th:field="*{name}" />
     </div>
     <div>
-        <button type="submit">Update Cargo Type</button>
+        <button type="submit">Обновить Тип Груза</button>
     </div>
 </form>
-<a th:href="@{/cargoTypes}">Back to Cargo Types List</a>
+<a th:href="@{/cargoTypes}">Назад к Списку Типов Груза</a>
 </body>
 </html>

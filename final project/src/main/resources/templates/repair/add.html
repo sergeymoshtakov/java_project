@@ -2,31 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Repair</title>
+    <title>Добавить Ремонт</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
-<h2>Add New Repair</h2>
+<h2>Добавить Новый Ремонт</h2>
 <form th:action="@{/repairs/add}" th:object="${repair}" method="post">
-    <label for="carId">Car:</label>
+    <label for="carId">Автомобиль:</label>
     <select id="carId" th:field="*{carId}">
         <option th:each="car : ${cars}" th:value="${car.id}" th:text="${car.model}"></option>
     </select>
     <br/>
-    <label for="driverId">Driver:</label>
+    <label for="driverId">Водитель:</label>
     <select id="driverId" th:field="*{driverId}">
         <option th:each="driver : ${drivers}" th:value="${driver.id}" th:text="${driver.firstName + ' ' + driver.lastName}"></option>
     </select>
     <br/>
-    <label for="repairTime">Repair Time:</label>
+    <label for="repairTime">Время Ремонта:</label>
     <input type="datetime-local" id="repairTime" th:field="*{repairTime}" />
     <br/>
-    <label for="fixed">Is Fixed:</label>
+    <label for="fixed">Исправлено:</label>
     <input type="checkbox" id="fixed" th:field="*{fixed}" />
     <br/>
-    <button type="submit">Save</button>
+    <button type="submit">Сохранить</button>
 </form>
 <br/>
-<a th:href="@{/repairs}">Back to Repair List</a>
+<a th:href="@{/repairs}">Назад к Списку Ремонт</a>
 </body>
 </html>

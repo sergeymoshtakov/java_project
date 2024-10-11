@@ -2,24 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Update Destination</title>
+    <title>Обновить Пункт Назначения</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
-<h2>Update Destination</h2>
+<h1>Обновить Пункт Назначения</h1>
 <form th:action="@{/destinations/update}" th:object="${destination}" method="post">
     <div>
         <label>ID:</label>
         <input type="text" th:field="*{id}" readonly />
     </div>
     <div>
-        <label>Name:</label>
+        <label>Название:</label>
         <input type="text" th:field="*{name}" />
     </div>
     <div>
-        <button type="submit">Update Destination</button>
+        <button type="submit">Обновить Пункт Назначения</button>
     </div>
 </form>
-<a th:href="@{/destinations}">Back to Destinations List</a>
+<a th:href="@{/destinations}">Назад к Списку Пунктов Назначения</a>
 </body>
 </html>

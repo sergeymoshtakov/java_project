@@ -69,6 +69,8 @@ public class AutobaseDBInitializer{
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private PendingRequestFactory pendingRequestFactory;
 
     public void cleanAll(){
         userService.deleteAll();
@@ -82,6 +84,13 @@ public class AutobaseDBInitializer{
         statusService.deleteAll();
         destinationService.deleteAll();
         cargoTypeService.deleteAll();
+    }
+
+    public void initializePendingRequests(int count){
+        for (int i = 0; i < count; i++) {
+            PendingRequest pendingRequest = pendingRequestFactory.getRandomElement();
+            pendingRequestService.save(pendingRequest);
+        }
     }
 
     public void initializeStatuses() {

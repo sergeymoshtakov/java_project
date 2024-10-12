@@ -19,6 +19,7 @@ public class AutobaseInitializer {
         autobaseDBInitializer.initializeCargoTypes(5);
         autobaseDBInitializer.initializeCars(10);
         autobaseDBInitializer.initializeDrivers(10);
+        autobaseDBInitializer.initializePendingRequests(5);
         autobaseDBInitializer.initializeRoles();
         autobaseDBInitializer.initializeUsers();
     }

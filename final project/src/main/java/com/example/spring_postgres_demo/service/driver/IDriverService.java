@@ -18,4 +18,6 @@ public interface IDriverService {
     void deleteAll() ;
 
     Driver findById(int id);
+
+    List<Driver> findAvailableDrivers();
 }

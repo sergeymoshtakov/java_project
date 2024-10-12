@@ -122,8 +122,8 @@ public class PendingRequestController {
                 .toList();
 
         model.addAttribute("requestDTO", requestDTO);
-        model.addAttribute("drivers", driverService.findAll());
-        model.addAttribute("cars", carService.findAll());
+        model.addAttribute("drivers", driverService.findAvailableDrivers());
+        model.addAttribute("cars", carService.findAvailableCars());
         model.addAttribute("statuses", statusService.findAll());
         model.addAttribute("destinations", availableDestinations); // Filtered destinations
         model.addAttribute("cargoTypes", availableCargoTypes); // Filtered cargo types

@@ -1,12 +1,15 @@
 package com.example.spring_postgres_demo.service.car;
 
 import com.example.spring_postgres_demo.dao.car.CarRepository;
+import com.example.spring_postgres_demo.enums.Statuses;
 import com.example.spring_postgres_demo.model.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CarService implements ICarService {
@@ -53,5 +56,13 @@ public class CarService implements ICarService {
     @Override
     public Car findById(int id) {
         return carRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<Car> findAvailableCars() {
+        return carRepository.findAll()
+                .stream()
+                .filter(car -> Objects.equals(car.getStatus().getName(), Statuses.AVAILABLE.getName())) // Только те, кто не на рейсе
+                .collect(Collectors.toList());
     }
 }

@@ -19,7 +19,7 @@
         <td th:text="${driver.id}"></td>
         <td th:text="${driver.name}"></td>
         <td th:text="${driver.experience}"></td>
-        <td th:text="${driver.available}"></td>
+        <td th:text="${driver.available  ? 'Доступен' : 'Недоступен'}"></td>
         <td>
             <a th:href="@{/drivers/update/{id}(id=${driver.id})}">Редактировать</a>
             <a th:href="@{/drivers/delete/{id}(id=${driver.id})}">Удалить</a>

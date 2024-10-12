@@ -18,4 +18,6 @@ public interface ICarService {
     void deleteAll() ;
 
     Car findById(int id);
+
+    List<Car> findAvailableCars();
 }

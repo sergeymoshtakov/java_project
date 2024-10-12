@@ -1,7 +1,10 @@
 package com.example.spring_postgres_demo.controller;
 
 import com.example.spring_postgres_demo.dto.RequestDTO;
+import com.example.spring_postgres_demo.enums.Statuses;
 import com.example.spring_postgres_demo.mapper.RequestMapper;
+import com.example.spring_postgres_demo.model.Car;
+import com.example.spring_postgres_demo.model.Driver;
 import com.example.spring_postgres_demo.model.Request;
 import com.example.spring_postgres_demo.service.request.RequestService;
 import com.example.spring_postgres_demo.service.destination.DestinationService;
@@ -58,8 +61,8 @@ public class RequestController {
         model.addAttribute("requestDTO", new RequestDTO()); // Инициализация RequestDTO
         model.addAttribute("destinations", destinationService.findAll());
         model.addAttribute("cargoTypes", cargoTypeService.findAll());
-        model.addAttribute("drivers", driverService.findAll());
-        model.addAttribute("cars", carService.findAll());
+        model.addAttribute("drivers", driverService.findAvailableDrivers());
+        model.addAttribute("cars", carService.findAvailableCars());
         model.addAttribute("statuses", statusService.findAll());
         return "request/create";
     }
@@ -69,6 +72,26 @@ public class RequestController {
     public String createRequest(@ModelAttribute RequestDTO requestDTO) {
         Request request = requestMapper.toEntity(requestDTO);
         requestService.save(request);
+
+        if (request.getStatus() == statusService.findByName(Statuses.COMPLETED.getName()))
+        {
+            Driver driver = request.getDriver();
+            driver.setStatus(statusService.findByName(Statuses.AVAILABLE.getName()));
+            driverService.update(driver);
+
+            Car car = request.getCar();
+            car.setStatus(statusService.findByName(Statuses.AVAILABLE.getName()));
+            carService.update(car);
+        } else {
+            Driver driver = request.getDriver();
+            driver.setStatus(statusService.findByName(Statuses.UNAVAILABLE.getName()));
+            driverService.update(driver);
+
+            Car car = request.getCar();
+            car.setStatus(statusService.findByName(Statuses.UNAVAILABLE.getName()));
+            carService.update(car);
+        }
+
         return "redirect:/requests";
     }
 
@@ -95,6 +118,26 @@ public class RequestController {
         Request request = requestMapper.toEntity(requestDTO);
         request.setId(id);
         requestService.update(request);
+
+        if (request.getStatus() == statusService.findByName(Statuses.COMPLETED.getName()))
+        {
+            Driver driver = request.getDriver();
+            driver.setStatus(statusService.findByName(Statuses.AVAILABLE.getName()));
+            driverService.update(driver);
+
+            Car car = request.getCar();
+            car.setStatus(statusService.findByName(Statuses.AVAILABLE.getName()));
+            carService.update(car);
+        } else {
+            Driver driver = request.getDriver();
+            driver.setStatus(statusService.findByName(Statuses.UNAVAILABLE.getName()));
+            driverService.update(driver);
+
+            Car car = request.getCar();
+            car.setStatus(statusService.findByName(Statuses.UNAVAILABLE.getName()));
+            carService.update(car);
+        }
+
         return "redirect:/requests";
     }
 
